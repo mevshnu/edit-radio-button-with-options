@@ -2,11 +2,11 @@
     <div class="row">
         <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">
             <div class="row">
-                    
-                
+
+
                 <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">
                     <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center">
-                      
+
                     </div>
                     <div class="row mt-5" *ngIf="sho; else elseBlock">
                         <!-- <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
@@ -62,12 +62,15 @@
                             <h5><br>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                     <br>
-                                    <button class="btn btn-primary" type="button">add Task</button>
-                                </div></h5>
+                                    <button class="btn btn-outline-primary" type="button">+Task</button>
+                                    <br>
+                                </div>
+                                <br>
+                            </h5>
                             <link rel="stylesheet"
                                 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-                            <table class="table justify-content-center table-bordered mb-5">
+                            <table class="table justify-content-center table-bordered mb-5" class="table table-striped">
                                 <thead class="bg-light">
                                     <tr>
 
@@ -83,9 +86,9 @@
 
                                         <td style="width: 20rem;" class="text-center">
                                             <button class="btn btn-danger mx-2"><i class="fa fa-trash"></i>
-                                                Delete</button>
-                                            <button class="btn btn-success" (click)="editBtnClick(i.id)"
-                                                (click)="sho = false"><i class="fa fa-bars"></i> Edit</button>
+                                                </button>
+                                            <button class="btn btn-primary" (click)="editBtnClick(i.id)"
+                                                (click)="sho = false"><i class="fa fa-bars"></i> </button>
                                         </td>
                                     </tr>
 
@@ -108,7 +111,7 @@
                 <ng-template #elseBlock>
 
 
-                    <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mt-5">
+                    <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">
 
                         <div class="row mt-5">
                             <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
@@ -120,9 +123,7 @@
                                 <input type="text" class="form-control" name="descriptions" [(ngModel)]="descriptions"
                                     value="{{descriptions}}">
                             </div>
-                            <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
 
-                            </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="options" [value]="false"
                                     [(ngModel)]="selectedOption" [checked]="selectedOption" id="flexRadioDefault1">
@@ -136,30 +137,32 @@
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Yes
                                 </label>
-                                <div *ngIf="selectedOption; else elseBlock">
-                                    <select name="tickdata" class="form-control" [(ngModel)]="tickdata"
-                                        value="{{tickdata}}">
-                                        <option class="d">None</option>
-                                        <option>ADT-A01</option>
-                                        <option>ADT-A03</option>
-                                    </select>
-                                </div>
-                                <ng-template #elseBlock>
+                                <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
 
-                                </ng-template>
+                                    <div *ngIf="selectedOption; else elseBlock">
+                                        <select name="tickdata" class="form-control" [(ngModel)]="tickdata"
+                                            value="{{tickdata}}">
+                                            <option class="d">None</option>
+                                            <option>ADT-A01</option>
+                                            <option>ADT-A03</option>
+                                        </select>
+                                    </div>
+                                    <ng-template #elseBlock>
+
+                                    </ng-template>
+                                </div>
                             </div>
 
 
-                            <div
-                                class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-4 d-flex justify-content-center mt-5">
-                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <button class="btn btn-primary p-2 mx-3" (click)="readValues()"
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button class="btn btn-outline-primary p-2 mx-3" (click)="readValues()"
                                     (click)="sho = true">Save</button>
-                                <button class="btn btn-primary p-2 mx-3" (click)="handleClear()"
+                                <button class="btn btn-outline-primary p-2 mx-3" (click)="handleClear()"
                                     (click)="sho = true">Cancel</button>
-                                </div>
                             </div>
                         </div>
+
 
                     </div>
                     <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2">
@@ -167,7 +170,7 @@
                         <link rel="stylesheet"
                             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-                        <table class="table justify-content-center table-bordered mb-5">
+                        <table class="table justify-content-center table-bordered mb-5" class="table table-striped">
                             <thead class="bg-light">
                                 <tr>
 
