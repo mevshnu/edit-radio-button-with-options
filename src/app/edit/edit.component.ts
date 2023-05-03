@@ -72,6 +72,7 @@ export class EditComponent {
           alert("Error in editing ")
           this.route.navigate(["/"])
             .then(() => {
+              
               window.location.reload();
             });
         }
