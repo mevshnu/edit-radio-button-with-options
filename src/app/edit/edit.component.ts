@@ -19,7 +19,7 @@ export class EditComponent {
   viewData = () => {
     this.api.viewAll().subscribe(
       (response: any) => {
-        this.TestData = response
+        this.TestData = response.detailsList
       }
     )
   }
@@ -91,12 +91,12 @@ export class EditComponent {
     this.api.getById({ "id": id }).subscribe(
       (response: any) => {
         console.log(response)
-        this.id = response[0].id
-        this.name = response[0].name
-        this.descriptions = response[0].descriptions
-        this.selectedOption = response[0].tick
+        this.id = response.detailsList[0].id
+        this.name = response.detailsList[0].name
+        this.descriptions = response.detailsList[0].descriptions
+        this.selectedOption = response.detailsList[0].tick
         if (this.selectedOption) {
-          this.tickdata = response[0].tickdata
+          this.tickdata = response.detailsList[0].tickdata
         }
 
       }
