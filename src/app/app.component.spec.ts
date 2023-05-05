@@ -11,7 +11,8 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent,
-        NavComponent
+        NavComponent,
+        
       ],
     }).compileComponents();
   });

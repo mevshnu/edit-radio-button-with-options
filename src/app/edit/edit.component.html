@@ -80,20 +80,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let i of TestData">
+                                    <tr *ngFor="let i of TestData | paginate: { itemsPerPage: 5, currentPage: p, totalItems: total }">
 
                                         <td style="width: 15rem;" class="text-center">{{i.name}}</td>
 
                                         <td style="width: 20rem;" class="text-center">
-                                            <button class="btn btn-danger mx-2"><i class="fa fa-trash"></i>
+                                            <button class="btn btn mx-2"><i class="fa fa-trash"></i>
                                                 </button>
-                                            <button class="btn btn-primary" (click)="editBtnClick(i.id)"
+                                            <button class="btn btn" (click)="editBtnClick(i.id)"
                                                 (click)="sho = false"><i class="fa fa-bars"></i> </button>
                                         </td>
                                     </tr>
 
                                 </tbody>
                             </table>
+
+                            <pagination-controls (pageChange)="pageChangeEvent($event)" style="float:right"></pagination-controls>
                         </div>
                     </div>
 
@@ -180,19 +182,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let i of TestData">
+                                <tr *ngFor="let i of TestData | paginate: { itemsPerPage: 5, currentPage: p, totalItems: total }">
 
                                     <td style="width: 15rem;" class="text-center">{{i.name}}</td>
 
                                     <td style="width: 20rem;" class="text-center">
-                                        <button class="btn btn-danger mx-2"><i class="fa fa-trash"></i> Delete</button>
-                                        <button class="btn btn-success" (click)="editBtnClick(i.id)"><i
-                                                class="fa fa-bars"></i> Edit</button>
+                                        <button class="btn btn mx-2"><i class="fa fa-trash"></i> </button>
+                                        <button class="btn btn" (click)="editBtnClick(i.id)"><i
+                                                class="fa fa-bars"></i> </button>
                                     </td>
+                                    
                                 </tr>
 
                             </tbody>
                         </table>
+                        <pagination-controls (pageChange)="pageChangeEvent($event)" style="float:right"></pagination-controls>
+
                     </div>
                 </ng-template>
 

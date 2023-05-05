@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { DemoComponent } from './demo/demo.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { PaginatePipe } from 'ngx-pagination';
+
 
 const myRoute:Routes =[
   {
@@ -33,7 +36,8 @@ const myRoute:Routes =[
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(myRoute)
+    RouterModule.forRoot(myRoute),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { PaginatePipe } from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @Component({
   selector: 'app-edit',
@@ -8,6 +11,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent {
+
+  p: number = 1;
+
+ total: number = 0;
+
   id = ""
   name = ""
   descriptions = ""
@@ -30,6 +38,7 @@ export class EditComponent {
   }
   constructor(private api: ApiService, private route: Router) {
     this.viewData()
+    
 
   }
   getsho = (values: any) => {
@@ -103,14 +112,16 @@ export class EditComponent {
     )
 
     console.log(this.tick);
+    
   }
 
   TestData: any = []
 
 
-
-
-
+  pageChangeEvent(event: number){
+    this.p = event;
+    this.viewData();
+  }
 
 
 }
