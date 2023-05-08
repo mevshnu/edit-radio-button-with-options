@@ -9,55 +9,7 @@
 
                     </div>
                     <div class="row mt-5" *ngIf="sho; else elseBlock">
-                        <!-- <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
-                            <label  for="" class="form-label text-secondary">Name</label>
-                            <input type="text" class="form-control" name="name" [(ngModel)]="name" disabled value="{{name}}" >
-                        </div>
-                        <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
-                            <label for="" class="form-label text-secondary">Descriptions</label>
-                            <input type="text" class="form-control" name="descriptions" [(ngModel)]="descriptions" disabled value="{{descriptions}}">
-                        </div>
-                        <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
-                           
-                        </div>
 
-
-                
-
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio"  value="false" disabled name="flexRadioDefault" id="flexRadioDefault1" (ngModelChange)="getValue(false)">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                              No
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio"  value="true" disabled name="flexRadioDefault"  id="flexRadioDefault2" (ngModelChange)="getValue(true)">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                              Yes
-                            </label>
-                            <div *ngIf="ticks; else elseBlock">
-                                <select name="tickdata" class="form-control  "  [(ngModel)]="tickdata" disabled value="{{tickdata}}">
-                                    <option class="d">None</option>
-                                    <option>ADT-A01</option>
-                                    <option>ADT-A03</option>
-                                </select>
-                            </div>
-                            <ng-template #elseBlock>
-                                <select name="tickdata" class="form-control  "  [(ngModel)]="tickdata"  value="{{tickdata}}" disabled>
-                                    <option class="d">None</option>
-                                    <option>ADT-A01</option>
-                                    <option>ADT-A03</option>
-                                </select>
-                            </ng-template>
-                          </div>        
-                          
-
-                        
-                        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-4 d-flex justify-content-center mt-5">
-                            <button class="btn btn-primary p-2 mx-3" (click)="readValues()" (click)="handleClear()" disabled>Save</button>
-                            <button class="btn btn-primary p-2 mx-3" (click)="handleClear()" disabled>Cancel</button>
-                        </div> -->
                         <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2">
                             <h5><br>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -80,13 +32,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let i of TestData | paginate: { itemsPerPage: 5, currentPage: p, totalItems: total }">
+                                    <tr
+                                        *ngFor="let i of TestData | paginate: { itemsPerPage: 5, currentPage: p, totalItems: total }">
 
                                         <td style="width: 15rem;" class="text-center">{{i.name}}</td>
 
                                         <td style="width: 20rem;" class="text-center">
                                             <button class="btn btn mx-2"><i class="fa fa-trash"></i>
-                                                </button>
+                                            </button>
                                             <button class="btn btn" (click)="editBtnClick(i.id)"
                                                 (click)="sho = false"><i class="fa fa-bars"></i> </button>
                                         </td>
@@ -95,21 +48,13 @@
                                 </tbody>
                             </table>
 
-                            <pagination-controls (pageChange)="pageChangeEvent($event)" style="float:right"></pagination-controls>
+                            <pagination-controls (pageChange)="pageChangeEvent($event)"
+                                style="float:right"></pagination-controls>
                         </div>
                     </div>
 
                 </div>
-
-
-
-
-
-
-
-
-
-
+                
                 <ng-template #elseBlock>
 
 
@@ -147,15 +92,13 @@
                                             <option class="d">None</option>
                                             <option>ADT-A01</option>
                                             <option>ADT-A03</option>
-                                    </select>
+                                        </select>
                                     </div>
                                     <ng-template #elseBlock>
 
                                     </ng-template>
                                 </div>
                             </div>
-
-
 
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                 <button class="btn btn-outline-primary p-2 mx-3" (click)="readValues()"
@@ -182,29 +125,26 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let i of TestData | paginate: { itemsPerPage: 5, currentPage: p, totalItems: total }">
+                                <tr
+                                    *ngFor="let i of TestData | paginate: { itemsPerPage: 5, currentPage: p, totalItems: total }">
 
                                     <td style="width: 15rem;" class="text-center">{{i.name}}</td>
 
                                     <td style="width: 20rem;" class="text-center">
                                         <button class="btn btn mx-2"><i class="fa fa-trash"></i> </button>
-                                        <button class="btn btn" (click)="editBtnClick(i.id)"><i
-                                                class="fa fa-bars"></i> </button>
+                                        <button class="btn btn" (click)="editBtnClick(i.id)"><i class="fa fa-bars"></i>
+                                        </button>
                                     </td>
-                                    
+
                                 </tr>
 
                             </tbody>
                         </table>
-                        <pagination-controls (pageChange)="pageChangeEvent($event)" style="float:right"></pagination-controls>
+                        <pagination-controls (pageChange)="pageChangeEvent($event)"
+                            style="float:right"></pagination-controls>
 
                     </div>
                 </ng-template>
-
-
-
-
-
 
             </div>
         </div>

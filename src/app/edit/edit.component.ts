@@ -14,7 +14,7 @@ export class EditComponent {
 
   p: number = 1;
 
- total: number = 0;
+  total: number = 0;
 
   id = ""
   name = ""
@@ -33,12 +33,12 @@ export class EditComponent {
   }
 
 
-  ngOnInit(){
+  ngOnInit() {
     this.selectedOption = false;
   }
   constructor(private api: ApiService, private route: Router) {
     this.viewData()
-    
+
 
   }
   getsho = (values: any) => {
@@ -81,7 +81,7 @@ export class EditComponent {
           alert("Error in editing ")
           this.route.navigate(["/"])
             .then(() => {
-              
+
               window.location.reload();
             });
         }
@@ -97,7 +97,7 @@ export class EditComponent {
     this.tickdata = "";
   }
   editBtnClick = (id: any) => {
-    this.api.getById({ "id": id }).subscribe(
+    this.api.getById( id ).subscribe(
       (response: any) => {
         console.log(response)
         this.id = response.detailsList[0].id
@@ -112,13 +112,13 @@ export class EditComponent {
     )
 
     console.log(this.tick);
-    
+
   }
 
   TestData: any = []
 
 
-  pageChangeEvent(event: number){
+  pageChangeEvent(event: number) {
     this.p = event;
     this.viewData();
   }

@@ -16,7 +16,7 @@ export class ApiService {
   }
   getById = (data:any)=>{
     console.log(data)
-    return this.http.post("http://localhost:8080/getbyid",data)
+    return this.http.get("http://localhost:8080/getbyid/"+data)
   }
   viewAll = ()=>{
     return this.http.get("http://localhost:8080/viewAll")
