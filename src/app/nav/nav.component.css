@@ -6,6 +6,11 @@
   width: 100%;
   background-color: #2b2d2e;
 }
+.navbar-brand 
+{
+  color:white;
+}
+
 /* The side navigation menu */
 .sidebar {
     margin: 0;
@@ -21,7 +26,7 @@
   /* Sidebar links */
   .sidebar a {
     display: block;
-    color: black;
+    color: white;
     padding: 10px;
     text-decoration: none;
   }

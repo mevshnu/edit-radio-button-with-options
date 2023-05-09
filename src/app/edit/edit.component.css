@@ -1,0 +1,16 @@
+.table tbody td{
+    width: 15rem;
+
+}
+.table tbody td button:nth-child(1){
+    font-size:20px;color:red;
+
+}
+.table tbody td button:nth-child(2){
+   
+
+    font-size:20px;color:blue;
+}
+pagination-controls{
+    float:right;
+}

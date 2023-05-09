@@ -14,6 +14,7 @@
                             <h5><br>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                     <br>
+                                    <!-- task button -->
                                     <button class="btn btn-outline-primary" type="button">+Task</button>
                                     <br>
                                 </div>
@@ -25,7 +26,7 @@
                             <table class="table justify-content-center table-bordered mb-5" class="table table-striped">
                                 <thead class="bg-light">
                                     <tr>
-
+                                        <!-- displaying details before edit button click -->
                                         <th class="text-center" scope="col">Name</th>
                                         <th class="text-center" scope="col">Action</th>
 
@@ -34,33 +35,34 @@
                                 <tbody>
                                     <tr
                                         *ngFor="let i of TestData | paginate: { itemsPerPage: 5, currentPage: p, totalItems: total }">
+                                        <!-- pagination -->
+                                        <td class="text-center">{{i.name}}</td>
 
-                                        <td style="width: 15rem;" class="text-center">{{i.name}}</td>
-
-                                        <td style="width: 20rem;" class="text-center">
+                                        <td class="text-center">
+                                            <!-- edit button and delete button -->
                                             <button class="btn btn mx-2"><i class="fa fa-trash"></i>
                                             </button>
                                             <button class="btn btn" (click)="editBtnClick(i.id)"
-                                                (click)="sho = false"><i class="fa fa-bars"></i> </button>
+                                                (click)="sho = false"><i class="fa fa-pencil"></i> </button>
                                         </td>
                                     </tr>
 
                                 </tbody>
                             </table>
 
-                            <pagination-controls (pageChange)="pageChangeEvent($event)"
-                                style="float:right"></pagination-controls>
+                            <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
                         </div>
                     </div>
 
                 </div>
-                
+
                 <ng-template #elseBlock>
 
 
                     <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">
 
                         <div class="row mt-5">
+                            <!-- after clicking edit button details,displaying the details for particular id -->
                             <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
                                 <label for="" class="form-label text-secondary">Name</label>
                                 <input type="text" class="form-control" name="name" [(ngModel)]="name" value="{{name}}">
@@ -86,7 +88,7 @@
                                 </label>
                                 <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
 
-                                    <div *ngIf="selectedOption; else elseBlock">
+                                    <div *ngIf="selectedOption; else elseBlocks">
                                         <select name="tickdata" class="form-control" [(ngModel)]="tickdata"
                                             value="{{tickdata}}">
                                             <option class="d">None</option>
@@ -94,12 +96,11 @@
                                             <option>ADT-A03</option>
                                         </select>
                                     </div>
-                                    <ng-template #elseBlock>
-
+                                    <ng-template #elseBlocks>
                                     </ng-template>
                                 </div>
                             </div>
-
+                            <!-- save and cancel button -->
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                 <button class="btn btn-outline-primary p-2 mx-3" (click)="readValues()"
                                     (click)="sho = true">Save</button>
@@ -119,6 +120,7 @@
                             <thead class="bg-light">
                                 <tr>
 
+                                    <!-- displaying every details after clicking edit button -->
                                     <th class="text-center" scope="col">Name</th>
                                     <th class="text-center" scope="col">Action</th>
 
@@ -128,11 +130,12 @@
                                 <tr
                                     *ngFor="let i of TestData | paginate: { itemsPerPage: 5, currentPage: p, totalItems: total }">
 
-                                    <td style="width: 15rem;" class="text-center">{{i.name}}</td>
+                                    <td class="text-center">{{i.name}}</td>
 
-                                    <td style="width: 20rem;" class="text-center">
+                                    <td class="text-center">
                                         <button class="btn btn mx-2"><i class="fa fa-trash"></i> </button>
-                                        <button class="btn btn" (click)="editBtnClick(i.id)"><i class="fa fa-bars"></i>
+                                        <button class="btn btn" (click)="editBtnClick(i.id)"><i
+                                                class="fa fa-pencil"></i>
                                         </button>
                                     </td>
 
@@ -140,8 +143,7 @@
 
                             </tbody>
                         </table>
-                        <pagination-controls (pageChange)="pageChangeEvent($event)"
-                            style="float:right"></pagination-controls>
+                        <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
 
                     </div>
                 </ng-template>

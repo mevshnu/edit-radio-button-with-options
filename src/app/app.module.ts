@@ -10,16 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DemoComponent } from './demo/demo.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
-const myRoute:Routes =[
-  {
-    path:"",
-    component: EditComponent
-  },
-  {
-    path:"demo",
-    component: DemoComponent
-  }
-]
+
 
 @NgModule({
   declarations: [
@@ -33,7 +24,6 @@ const myRoute:Routes =[
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(myRoute),
     NgxPaginationModule
   ],
   providers: [],

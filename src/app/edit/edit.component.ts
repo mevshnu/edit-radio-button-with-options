@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
 import { PaginatePipe } from 'ngx-pagination';
-import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @Component({
@@ -11,11 +10,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent {
-
+  
+ 
   p: number = 1;
-
   total: number = 0;
-
   id = ""
   name = ""
   descriptions = ""
@@ -23,7 +21,7 @@ export class EditComponent {
   tickdata = ""
   sho = true
   selectedOption: boolean = false;
-
+// function for updaing page ,which is called by readvalues
   viewData = () => {
     this.api.viewAll().subscribe(
       (response: any) => {
@@ -31,6 +29,7 @@ export class EditComponent {
       }
     )
   }
+  router: any;
 
 
   ngOnInit() {
@@ -38,15 +37,13 @@ export class EditComponent {
   }
   constructor(private api: ApiService, private route: Router) {
     this.viewData()
-
-
   }
-  getsho = (values: any) => {
-    this.sho = values;
-    console.log(this.sho)
-  }
+  // getsho = (values: any) => {
+  //   this.sho = values;
+    
+  // }
 
-
+  //updating values which is given by user
   readValues = () => {
     let data: any
     if (this.selectedOption) {
@@ -67,35 +64,25 @@ export class EditComponent {
       }
     }
 
-    console.log(this.selectedOption)
     this.api.editDetails(data).subscribe(
       (response: any) => {
-        if (response.status == "success") {
-
-          this.route.navigate(["/"])
-            .then(() => {
-              this.viewData()
-            });
-
-        } else {
-          alert("Error in editing ")
-          this.route.navigate(["/"])
-            .then(() => {
-
-              window.location.reload();
-            });
-        }
-
+        this.viewData();
+          
+          // this.route.navigate(["/"])
+          //   .then(() => {
+          //    
+          //   });
       }
     )
   }
-
+  // clearing field on cancel button
   handleClear() {
     this.id = "";
     this.name = "";
     this.descriptions = "";
     this.tickdata = "";
   }
+  // fetching detials of particular details 
   editBtnClick = (id: any) => {
     this.api.getById( id ).subscribe(
       (response: any) => {
@@ -111,13 +98,12 @@ export class EditComponent {
       }
     )
 
-    console.log(this.tick);
-
   }
 
+  apiData:any = [];
   TestData: any = []
 
-
+//pagination
   pageChangeEvent(event: number) {
     this.p = event;
     this.viewData();
